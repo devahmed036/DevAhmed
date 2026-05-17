@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Muhammad Ahmed Raza | Senior CMS Developer Portfolio</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, .logo, .nav-links a {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e3a5f;
+            border-radius: 10px;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.02);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0c4a6e, #1e3a5f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1e293b;
+            transition: 0.25s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #1e3a5f;
+            border-bottom: 2px solid #1e3a5f;
+            padding-bottom: 4px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(100deg, #1e3a5f, #2c5282);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 18px rgba(30,58,95,0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #1e3a5f;
+            border: 1.5px solid #1e3a5f;
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: #1e3a5f;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 22px rgba(30,58,95,0.3);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 70px 0 60px;
+        }
+
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .hero-content {
+            flex: 1.2;
+        }
+
+        .hero-badge {
+            background: #e0f2fe;
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #0c4a6e;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .hero-content h1 span {
+            color: #1e3a5f;
+            border-bottom: 3px solid #2c5282;
+        }
+
+        .hero-content p {
+            font-size: 1.05rem;
+            color: #334155;
+            margin: 20px 0 25px;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            flex: 0.8;
+            text-align: center;
+            background: linear-gradient(145deg, #e6f0fa, #ffffff);
+            border-radius: 40% 60% 30% 70% / 50% 40% 60% 50%;
+            padding: 25px;
+        }
+
+        .avatar-icon {
+            font-size: 10rem;
+            color: #1e3a5f;
+        }
+
+        .contact-info-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .contact-chip {
+            background: #f1f5f9;
+            padding: 6px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Section */
+        .section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3a5f, #5b8cbf);
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 18px 22px;
+            border-radius: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .skill-card:hover {
+            transform: translateY(-4px);
+            border-color: #1e3a5f;
+            background: #fafcff;
+        }
+
+        /* Experience Cards */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .exp-card {
+            background: white;
+            border-radius: 24px;
+            padding: 25px 30px;
+            box-shadow: 0 10px 25px -8px rgba(0,0,0,0.05);
+            border-left: 5px solid #1e3a5f;
+            transition: 0.2s;
+        }
+        .exp-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 5px;
+        }
+        .exp-company {
+            font-weight: 600;
+            color: #1e3a5f;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+        .exp-date {
+            color: #64748b;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+        .exp-desc {
+            color: #334155;
+            padding-left: 0;
+            list-style: none;
+        }
+        .exp-desc li {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .exp-desc li i {
+            color: #1e3a5f;
+            width: 20px;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .project-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px -12px rgba(0,0,0,0.08);
+            border: 1px solid #eef2ff;
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+        }
+        .project-header {
+            background: #eef3fc;
+            padding: 20px;
+            text-align: center;
+            font-size: 2rem;
+            color: #1e3a5f;
+        }
+        .project-body {
+            padding: 22px;
+        }
+        .project-body h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        .project-url {
+            font-size: 0.7rem;
+            color: #5b6e8c;
+            word-break: break-all;
+            margin-bottom: 12px;
+        }
+
+        /* Certifications + Education */
+        .certs-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .cert-item {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 28px;
+            text-align: center;
+            min-width: 200px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+        }
+        .edu-item {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 24px;
+            text-align: center;
+        }
+
+        /* Contact */
+        .contact-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background: white;
+            border-radius: 40px;
+            padding: 45px 40px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.05);
+        }
+        .contact-details .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #cbd5e1;
+            border-radius: 32px;
+            font-family: 'Inter', sans-serif;
+        }
+        .footer {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 30px;
+        }
+        .social-links a {
+            color: #94a3b8;
+            font-size: 1.4rem;
+            margin: 0 12px;
+            transition: 0.2s;
+        }
+        .social-links a:hover {
+            color: white;
+        }
+        @media (max-width: 750px) {
+            .container { padding: 0 20px; }
+            .hero-content h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container nav-container">
+        <div class="logo">Muhammad Ahmed Raza</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="hero-badge"><i class="fas fa-crown"></i> Senior CMS Developer</span>
+                <h1>Muhammad <span>Ahmed Raza</span></h1>
+                <p>Senior CMS Developer | AI Automation & API Integration Specialist with 6+ years of experience in WordPress, Shopify, Webflow, and enterprise solutions. <strong>60+ global projects delivered.</strong></p>
+                <div class="contact-info-header">
+                    <span class="contact-chip"><i class="fas fa-envelope"></i> ar8783700@gmail.com</span>
+                    <span class="contact-chip"><i class="fab fa-linkedin"></i> linkedin.com/in/muhammad-ahmed</span>
+                    <span class="contact-chip"><i class="fab fa-github"></i> github.com/devahmed036</span>
+                </div>
+                <div class="hero-buttons" style="margin-top: 25px;">
+                    <a href="#contact" class="btn">Hire Me <i class="fas fa-paper-plane"></i></a>
+                    <a href="#projects" class="btn btn-outline">View Portfolio</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-laptop-code avatar-icon"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section" style="background: #fefefe;">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="timeline">
+                <div class="exp-card">
+                    <h3>Senior CMS Developer</h3>
+                    <div class="exp-company">Black Buck Design <span style="font-weight:normal;">| Oct 2025 - Present</span></div>
+                    <ul class="exp-desc">
+                        <li><i class="fas fa-check-circle"></i> Leading complex CMS development & enterprise-level web solutions</li>
+                        <li><i class="fas fa-check-circle"></i> Architecting custom WordPress themes, plugins & advanced Shopify Liquid builds</li>
+                        <li><i class="fas fa-check-circle"></i> Integrating AI automation workflows & complex Zapier connections</li>
+                        <li><i class="fas fa-check-circle"></i> Managing hosting environments, troubleshooting, FTP & site migrations</li>
+                    </ul>
+                </div>
+                <div class="exp-card">
+                    <h3>Senior CMS Developer</h3>
+                    <div class="exp-company">Mindigital <span style="font-weight:normal;">| 2024 - 2025</span></div>
+                    <ul class="exp-desc"><li><i class="fas fa-check-circle"></i> Led end-to-end CMS projects and mentored junior developers</li><li><i class="fas fa-check-circle"></i> Designed custom CMS architectures, plugins, and modules</li></ul>
+                </div>
+                <div class="exp-card">
+                    <h3>CMS Developer</h3>
+                    <div class="exp-company">Aimetch Innovative <span style="font-weight:normal;">| 2023 - 2024</span></div>
+                    <ul class="exp-desc"><li><i class="fas fa-check-circle"></i> Built and maintained CMS websites using WordPress, Shopify, Webflow</li><li><i class="fas fa-check-circle"></i> Created custom plugins, modules, and themes</li></ul>
+                </div>
+                <div class="exp-card">
+                    <h3>WordPress Developer</h3>
+                    <div class="exp-company">Weblink Solution <span style="font-weight:normal;">| 2022 - 2023</span></div>
+                    <ul class="exp-desc"><li><i class="fas fa-check-circle"></i> Developed and customized WordPress themes & plugins</li><li><i class="fas fa-check-circle"></i> Optimized SEO & performance increasing load speed by 30%</li></ul>
+                </div>
+                <div class="exp-card">
+                    <h3>Web Developer</h3>
+                    <div class="exp-company">Inovi Solution <span style="font-weight:normal;">| Feb 2020 - Jan 2021</span></div>
+                    <ul class="exp-desc"><li><i class="fas fa-check-circle"></i> Developed dynamic websites using WordPress, Shopify, Webflow</li><li><i class="fas fa-check-circle"></i> Integrated third-party APIs and resolved technical issues</li></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section id="skills" class="section" style="background: #f8fafc;">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <span class="skill-card">WordPress</span><span class="skill-card">Shopify</span><span class="skill-card">Wix</span><span class="skill-card">Webflow</span>
+                <span class="skill-card">Squarespace</span><span class="skill-card">WeStudio</span><span class="skill-card">Hubspot</span><span class="skill-card">Go High Level</span>
+                <span class="skill-card">WP Theme Customization</span><span class="skill-card">WP Plugin Customization</span><span class="skill-card">Shopify Liquid</span>
+                <span class="skill-card">PHP</span><span class="skill-card">JavaScript</span><span class="skill-card">HTML/CSS</span><span class="skill-card">AI Automation</span>
+                <span class="skill-card">Zapier</span><span class="skill-card">FTP Migration</span><span class="skill-card">Site Migration</span><span class="skill-card">Hosting Management</span>
+                <span class="skill-card">Troubleshooting</span><span class="skill-card">Figma</span><span class="skill-card">Canva</span><span class="skill-card">Git</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Portfolio -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Recent Projects</h2>
+            <div class="projects-grid">
+                <!-- Sample projects list from CV (first 12 shown) -->
+                <div class="project-card"><div class="project-header"><i class="fas fa-globe"></i></div><div class="project-body"><h3>255.com</h3><div class="project-url">255.com</div><span class="tag" style="background:#eef2ff;padding:2px 8px;border-radius:20px;">Enterprise</span></div></div>
+                <div class="project-card"><div class="project-header"><i class="fas fa-hotel"></i></div><div class="project-body"><h3>wheelierooms.com</h3><div class="project-url">wheelierooms.com</div></div></div>
+                <div class="project-card"><div class="project-header"><i class="fas fa-brain"></i></div><div class="project-body"><h3>krexio.ai</h3><div class="project-url">krexio.ai</div><span class="tag" style="background:#eef2ff;padding:2px 8px;">AI Integration</span></div></div>
+                <div class="project-card"><div class="project-header"><i class="fas fa-microchip"></i></div><div class="project-body"><h3>swisstech.dev</h3><div class="project-url">swisstech.dev</div></div></div>
+                <div class="project-card"><div class="project-header"><i class="fas fa-mosque"></i></div><div class="project-body"><h3>epingmusallah.com.au</h3><div class="project-url">epingmusallah.com.au</div></div></div>
+                <div class="project-card"><div class="project-header"><i class="fas fa-sun"></i></div><div class="project-body"><h3>sunshades-shutters.co.uk</h3><div class="project-url">sunshades-shutters.co.uk</div></div></div>
+                <div class="project-card"><div class="project-header"><i class="fas fa-seedling"></i></div><div class="project-body"><h3>smarter-garten.at</h3><div class="project-url">smarter-garten.at</div></div></div>
+                <div class="project-card"><div class="project-header"><i class="fas fa-chart-line"></i></div><div class="project-body"><h3>lineadubai.com</h3><div class="project-url">lineadubai.com</div></div></div>
+                <div class="project-card"><div class="project-header"><i class="fas fa-utensils"></i></div><div class="project-body"><h3>ryzesuperfoods.com</h3><div class="project-url">ryzesuperfoods.com</div></div></div>
+                <div class="project-card"><div class="project-header"><i class="fas fa-hand-holding-heart"></i></div><div class="project-body"><h3>zakat.com.au</h3><div class="project-url">zakat.com.au</div></div></div>
+                <div class="project-card"><div class="project-header"><i class="fas fa-cube"></i></div><div class="project-body"><h3>vertexcapsolutions.com</h3><div class="project-url">vertexcapsolutions.com</div></div></div>
+                <div class="project-card"><div class="project-header"><i class="fas fa-film"></i></div><div class="project-body"><h3>digitizingfamilyfilm.com</h3><div class="project-url">digitizingfamilyfilm.com</div></div></div>
+            </div>
+            <div style="text-align:center; margin-top: 30px;"><a href="#" class="btn btn-outline">View All 20+ Projects <i class="fas fa-arrow-right"></i></a></div>
+        </div>
+    </section>
+
+    <!-- Certifications & Education -->
+    <section id="certifications" class="section" style="background:#fafcff;">
+        <div class="container">
+            <h2 class="section-title">Certifications & Education</h2>
+            <div class="certs-grid" style="margin-bottom: 40px;">
+                <div class="cert-item"><i class="fas fa-graduation-cap" style="font-size:2rem; color:#1e3a5f;"></i><h3>Diploma of Software Engineering</h3><p>Aptech (2020-2023)</p></div>
+                <div class="cert-item"><i class="fas fa-certificate"></i><h3>Microsoft Office Certification</h3><p>Microsoft</p></div>
+                <div class="cert-item"><i class="fas fa-trophy"></i><h3>Excellence Best Project Award</h3><p>Aptech</p></div>
+                <div class="cert-item"><i class="fas fa-users"></i><h3>Team Lead Recognition</h3><p>Mindigital & Aimetch</p></div>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:25px; justify-content:center;">
+                <div class="edu-item"><i class="fas fa-university"></i><h3>Intermediate</h3><p>Federal Board (2020-2022)</p></div>
+                <div class="edu-item"><i class="fas fa-language"></i><h3>Languages</h3><p>English (Fluent) | Urdu (Native)</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Let’s Connect</h2>
+            <div class="contact-flex">
+                <div class="contact-details" style="flex:1">
+                    <h3>Available for freelance & full-time roles</h3>
+                    <p>Expert in CMS, AI automation & migrations. Let's build something great.</p>
+                    <div class="contact-item"><i class="fas fa-phone-alt"></i> +92 301 0122701 / +92 323 2585653</div>
+                    <div class="contact-item"><i class="fas fa-envelope"></i> ar8783700@gmail.com | mardeveloper8@gmail.com</div>
+                    <div class="contact-item"><i class="fab fa-linkedin"></i> linkedin.com/in/muhammad-ahmed-599342231</div>
+                    <div class="contact-item"><i class="fab fa-github"></i> github.com/devahmed036</div>
+                </div>
+                <div class="contact-form" style="flex:1">
+                    <form id="contactForm">
+                        <input type="text" id="name" placeholder="Your Name" required style="margin-bottom:15px; width:100%;">
+                        <input type="email" id="email" placeholder="Email Address" required style="margin-bottom:15px; width:100%;">
+                        <textarea rows="4" id="message" placeholder="Project details or message..."></textarea>
+                        <button type="submit" class="btn" style="width:100%; margin-top:20px;">Send Message <i class="fas fa-paper-plane"></i></button>
+                        <p id="formStatus" style="margin-top:12px; font-size:0.8rem;"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>© 2026 Muhammad Ahmed Raza — Senior CMS Developer | AI Automation Specialist. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('contactForm')?.addEventListener('submit', function(e){
+        e.preventDefault();
+        let name = document.getElementById('name').value.trim();
+        let email = document.getElementById('email').value.trim();
+        let status = document.getElementById('formStatus');
+        if(!name || !email){
+            status.innerHTML = '<span style="color:#e53e3e;">Please fill name and email.</span>';
+            return;
+        }
+        status.innerHTML = '<span style="color:#2c7a4a;"><i class="fas fa-spinner fa-pulse"></i> Sending...</span>';
+        setTimeout(()=>{
+            status.innerHTML = '<span style="color:#2c7a4a;">✓ Message received! I will respond within 24 hours.</span>';
+            document.getElementById('contactForm').reset();
+            setTimeout(()=> status.innerHTML = '', 4000);
+        }, 1000);
+    });
+    document.querySelectorAll('.nav-links a, .btn[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e){
+            let target = this.getAttribute('href');
+            if(target && target !== '#') {
+                let el = document.querySelector(target);
+                if(el){ e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+            }
+        });
+    });
+</script>
+</body>
+</html>
